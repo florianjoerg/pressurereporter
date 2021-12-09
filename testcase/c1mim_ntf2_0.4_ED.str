@@ -1,0 +1,879 @@
+*This is a str file
+
+
+!*.......................................................................
+!*.              Nonpolarizable Canongia Lopes--Padua     
+!*.......................................................................
+!*.              Last changed Time-stamp: <2021-11-25 14:15:27 Eduard>
+!*.......................................................................
+!* reordered xyz for valid polarizabilities
+read rtf card append
+* RTF
+   99     1
+
+!The mass was transfered to mod_toppar_drude_master_protein_2018f.str 
+!MASS  201 H1         1.008
+!MASS  202 HA         1.008
+!MASS  204 HC         1.008
+!MASS  205 HNA        1.008
+!MASS  220 C1        12.011
+!MASS  221 C2        12.011
+!MASS  223 CE        12.011
+!MASS  225 CR        12.011
+!MASS  226 CS        12.011
+!MASS  227 CT        12.011
+!MASS  228 CW        12.011
+!MASS  230 NA        14.007
+!MASS  236 NY        14.007
+!MASS  240 OY        15.999
+!MASS  250 FY        18.998
+!MASS  260 SY        32.066
+
+DEFA FIRS NONE LAST NONE
+AUTO ANGLE DIHEDRAL DRUDE
+!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+RESIDUE  MIM  1.00                             ! JPC B 110 (2006), 19586
+!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+GROUP
+ATOM    HNA1    HNA      0.37 !                HNA1
+ATOM    NA1     NA      -0.21 !                 |
+ATOM    CR1     CR       0.00 !                NA1
+ATOM    HA1     HA       0.21 !               /   \
+ATOM    NA2     NA       0.15 !        HA2--CW1    \
+ATOM    CW1     CW      -0.03 !             ||     CR1--HA1
+ATOM    HA2     HA       0.21 !        HA3--CW2    //
+ATOM    CW2     CW      -0.03 !               \  //
+ATOM    HA3     HA       0.21 !                NA2 (+)
+ATOM    C11     C1      -0.27 !                |
+ATOM    H11     H1       0.13 !          H11--C11--H12
+ATOM    H12     H1       0.13 !                |
+ATOM    H13     H1       0.13 !               H13
+BOND    HNA1    NA1                                   
+BOND    NA1     CR1                                  
+BOND    CR1     NA2                                   
+BOND    CW2     NA2                                  
+BOND    CW1     CW2
+BOND    CW1     NA1
+BOND    CR1     HA1  
+BOND    CW1     HA2 
+BOND    CW2     HA3 
+BOND    NA2     C11
+BOND    C11     H11
+BOND    C11     H12
+BOND    C11     H13
+IMPH    CR1    NA1    NA2    HA1
+IMPH    CW1    CW2    NA1    HA2
+IMPH    CW2    CW1    NA2    HA3
+IMPH    NA1    CR1    CW1    HNA1
+IMPH    NA2    CR1    CW2    C11
+DONOR   HNA1    NA1
+DONOR   HA1     CR1
+DONOR   HA2     CW1
+DONOR   HA3     CW2
+PATCHING FIRST NONE LAST NONE
+
+!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+RESIDUE  C1MI  1.00                              ! JPC B 108(2004), 2038
+!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+GROUP
+ATOM    C11     C1     -0.17    ALPHA  -1.655   THOLE 0.0 !         H11
+ATOM    H11     H1      0.13 			         		  !          |
+ATOM    H12     H1      0.13                              !    H12--C11--H13 
+ATOM    H13     H1      0.13                              !          |
+ATOM    NA1     NA      0.15    ALPHA  -1.091   THOLE 0.0 !         NA1(+)
+ATOM    CR1     CR     -0.11    ALPHA  -1.244   THOLE 0.0 !        //  \
+ATOM    HA1     HA      0.21                              !       //    CW1--HA2
+ATOM    NA2     NA      0.15    ALPHA  -1.091   THOLE 0.0 ! HA1--CR1    ||
+ATOM    CW1     CW     -0.13    ALPHA  -1.290   THOLE 0.0 !       \     CW2--HA3
+ATOM    HA2     HA      0.21                              !        \   /
+ATOM    CW2     CW     -0.13    ALPHA  -1.290   THOLE 0.0 !         NA2
+ATOM    HA3     HA      0.21                              !          |
+ATOM    C12     C1     -0.17    ALPHA  -1.655   THOLE 0.0 !    H14--C12--H15
+ATOM    H14     H1	    0.13							  !          |
+ATOM    H15     H1	    0.13           				      !         H16
+ATOM    H16     H1	    0.13				 		      !          
+BOND    C11    H11
+BOND    C11    H12
+BOND    C11    H13
+BOND    C11    NA1
+BOND    CR1    NA1
+BOND    CR1    NA2
+BOND    CW2    NA2
+BOND    CW1    CW2
+BOND    CW1    NA1
+BOND    CR1    HA1
+BOND    CW1    HA2
+BOND    CW2    HA3
+BOND    C12    NA2
+BOND    C12    H14
+BOND    C12    H15
+BOND    C12    H16
+IMPH    CR1    NA1    NA2    HA1
+IMPH    CW1    CW2    NA1    HA2
+IMPH    CW2    CW1    NA2    HA3
+IMPH    NA1    CR1    CW1    C11
+IMPH    NA2    CR1    CW2    C12
+DONOR   HA1    CR1
+DONOR   HA2    CW1
+DONOR   HA3    CW2
+PATCHING FIRST NONE LAST NONE
+
+!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+RESIDUE  C2MI  1.00                              ! JPC B 108(2004), 2038
+!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+GROUP
+ATOM    C11     C1      -0.17   ALPHA  -1.601   THOLE 0.0 !         H11
+ATOM    H11     H1       0.13			       		      !          |
+ATOM    H12     H1       0.13                             !    H12--C11--H13 
+ATOM    H13     H1       0.13                             !          |
+ATOM    NA1     NA       0.15   ALPHA  -1.116   THOLE 0.0 !         NA1(+)
+ATOM    CR1     CR      -0.11   ALPHA  -1.254   THOLE 0.0 !        //  \
+ATOM    HA1     HA       0.21                             !       //    CW1--HA2
+ATOM    NA2     NA       0.15   ALPHA  -1.116   THOLE 0.0 ! HA1--CR1    ||
+ATOM    CW1     CW      -0.13   ALPHA  -1.294   THOLE 0.0 !       \     CW2--HA3
+ATOM    HA2     HA       0.21                             !        \   /
+ATOM    CW2     CW      -0.13   ALPHA  -1.294   THOLE 0.0 !         NA2
+ATOM    HA3     HA       0.21                             !          |
+ATOM    C12     C1      -0.17   ALPHA  -1.601   THOLE 0.0 !    H14--C12--H15
+ATOM    H14     H1       0.13   				     	  !          |
+ATOM    H15     H1       0.13   				    	  !    HC1--CE1--HC2
+ATOM    CE1     CE      -0.05   ALPHA  -1.759   THOLE 0.0 !          |
+ATOM    HC1     HC       0.06   			     		  !         HC3
+ATOM    HC2     HC       0.06   
+ATOM    HC3     HC       0.06   
+BOND    C11    H11               
+BOND    C11    H12               
+BOND    C11    H13               
+BOND    C11    NA1               
+BOND    CR1    NA1               
+BOND    CR1    NA2               
+BOND    CW2    NA2               
+BOND    CW1    CW2
+BOND    CW1    NA1
+BOND    CR1    HA1
+BOND    CW1    HA2
+BOND    CW2    HA3
+BOND    C12    NA2
+BOND    C12    H14
+BOND    C12    H15
+BOND    C12    CE1
+BOND    CE1    HC1
+BOND    CE1    HC2
+BOND    CE1    HC3
+IMPH    CR1    NA1    NA2    HA1
+IMPH    CW1    CW2    NA1    HA2
+IMPH    CW2    CW1    NA2    HA3
+IMPH    NA1    CR1    CW1    C11
+IMPH    NA2    CR1    CW2    C12
+DONOR   HA1    CR1
+DONOR   HA2    CW1
+DONOR   HA3    CW2
+PATCHING FIRST NONE LAST NONE
+
+!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+RESIDUE  C3MI  1.00        !ergänzt durch Eduard, JPC B 108(2004), 2038
+!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+GROUP
+ATOM    C11     C1      -0.17   ALPHA  -1.637   THOLE 0.0  !         H11
+ATOM    H11     H1       0.13   				           !          |
+ATOM    H12     H1       0.13                              !    H12--C11--H13 
+ATOM    H13     H1       0.13                              !          |
+ATOM    NA1     NA       0.15   ALPHA  -1.118   THOLE 0.0  !         NA1(+)
+ATOM    CR1     CR      -0.11   ALPHA  -1.232   THOLE 0.0  !        //  \
+ATOM    HA1     HA       0.21                              !       //    CW1--HA2
+ATOM    NA2     NA       0.15   ALPHA  -1.118   THOLE 0.0  ! HA1--CR1    ||
+ATOM    CW1     CW      -0.13   ALPHA  -1.291   THOLE 0.0  !       \     CW2--HA3
+ATOM    HA2     HA       0.21                              !        \   /
+ATOM    CW2     CW      -0.13   ALPHA  -1.291   THOLE 0.0  !         NA2
+ATOM    HA3     HA       0.21                              !          |
+ATOM    C12     C1      -0.17   ALPHA  -1.637   THOLE 0.0  !    H14--C12--H15
+ATOM    H14     H1       0.13   				           !          |
+ATOM    H15     H1       0.13   					       !    HC1--C21--HC2
+ATOM    C21     C2       0.01   ALPHA  -1.608   THOLE 0.0  !          |
+ATOM    HC1     HC       0.06   				      	   !          |   
+ATOM    HC2     HC       0.06   					       !          |
+ATOM    CT1     CT      -0.18   ALPHA  -1.696   THOLE 0.0  !    HC3--CT1--HC4
+ATOM    HC3     HC       0.06   					       !          |
+ATOM    HC4     HC       0.06    					       !         HC5
+ATOM    HC5     HC       0.06    					       ! 
+BOND    C11    H11               
+BOND    C11    H12               
+BOND    C11    H13               
+BOND    C11    NA1               
+BOND    CR1    NA1
+BOND    CR1    NA2
+BOND    CW2    NA2
+BOND    CW1    CW2
+BOND    CW1    NA1
+BOND    CR1    HA1
+BOND    CW1    HA2
+BOND    CW2    HA3
+BOND    C12    NA2
+BOND    C12    H14
+BOND    C12    H15
+BOND    C12    C21
+BOND    C21    HC1
+BOND    C21    HC2
+BOND    C21    CT1
+BOND    CT1    HC3
+BOND    CT1    HC4
+BOND    CT1    HC5
+IMPH    CR1    NA1    NA2    HA1
+IMPH    CW1    CW2    NA1    HA2
+IMPH    CW2    CW1    NA2    HA3
+IMPH    NA1    CR1    CW1    C11
+IMPH    NA2    CR1    CW2    C12
+DONOR   HA1    CR1
+DONOR   HA2    CW1
+DONOR   HA3    CW2
+PATCHING FIRST NONE LAST NONE
+
+
+!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+RESIDUE  C4MI  1.00                              ! JPC B 108(2004), 2038
+!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+GROUP
+ATOM    C11     C1      -0.17  ALPHA  -1.661   THOLE 0.0  !         H11
+ATOM    H11     H1       0.13  	 			              !          |
+ATOM    H12     H1       0.13                             !    H12--C11--H13 
+ATOM    H13     H1       0.13                             !          |
+ATOM    NA1     NA       0.15  ALPHA  -1.119   THOLE 0.0  !         NA1(+)
+ATOM    CR1     CR      -0.11  ALPHA  -1.233   THOLE 0.0  !        //  \
+ATOM    HA1     HA       0.21                             !       //    CW1--HA2
+ATOM    NA2     NA       0.15  ALPHA  -1.119   THOLE 0.0  ! HA1--CR1    ||
+ATOM    CW1     CW      -0.13  ALPHA  -1.287   THOLE 0.0  !       \     CW2--HA3
+ATOM    HA2     HA       0.21                             !        \   /
+ATOM    CW2     CW      -0.13  ALPHA  -1.287   THOLE 0.0  !         NA2
+ATOM    HA3     HA       0.21                             !          |
+ATOM    C12     C1      -0.17  ALPHA  -1.661   THOLE 0.0  !    H14--C12--H15
+ATOM    H14     H1       0.13      				          !          |
+ATOM    H15     H1       0.13  				              !    HC1--C21--HC2
+ATOM    C21     C2       0.01  ALPHA  -1.619   THOLE 0.0  !          |
+ATOM    HC1     HC       0.06  					          !    HC3--CS1--HC4
+ATOM    HC2     HC       0.06  					          !          |
+ATOM    CS1     CS      -0.12  ALPHA  -1.562   THOLE 0.0  !    HC5--CT1--HC6
+ATOM    HC3     HC       0.06  					          !          |
+ATOM    HC4     HC       0.06   				          !         HC7
+ATOM    CT1     CT      -0.18  ALPHA  -1.875   THOLE 0.0  !				   !
+ATOM    HC5     HC       0.06  
+ATOM    HC6     HC       0.06  
+ATOM    HC7     HC       0.06   
+BOND    C11    H11              
+BOND    C11    H12
+BOND    C11    H13
+BOND    C11    NA1
+BOND    CR1    NA1
+BOND    CR1    NA2
+BOND    CW2    NA2
+BOND    CW1    CW2
+BOND    CW1    NA1
+BOND    CR1    HA1
+BOND    CW1    HA2
+BOND    CW2    HA3
+BOND    C12    NA2
+BOND    C12    H14
+BOND    C12    H15
+BOND    C12    C21
+BOND    C21    HC1
+BOND    C21    HC2
+BOND    C21    CS1
+BOND    CS1    HC3
+BOND    CS1    HC4
+BOND    CS1    CT1
+BOND    CT1    HC5
+BOND    CT1    HC6
+BOND    CT1    HC7
+IMPH    CR1    NA1    NA2    HA1
+IMPH    CW1    CW2    NA1    HA2
+IMPH    CW2    CW1    NA2    HA3
+IMPH    NA1    CR1    CW1    C11
+IMPH    NA2    CR1    CW2    C12
+DONOR   HA1    CR1
+DONOR   HA2    CW1
+DONOR   HA3    CW2
+PATCHING FIRST NONE LAST NONE
+
+!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+RESIDUE  C5MI  1.00        !ergänzt durch Eduard, JPC B 108(2004), 2038
+!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+GROUP
+ATOM    C11     C1      -0.17  ALPHA  -1.661   THOLE 0.0 !         H11
+ATOM    H11     H1       0.13  				             !          |
+ATOM    H12     H1       0.13                            !    H12--C11--H13 
+ATOM    H13     H1       0.13                            !          |
+ATOM    NA1     NA       0.15  ALPHA  -1.117   THOLE 0.0 !         NA1(+)
+ATOM    CR1     CR      -0.11  ALPHA  -1.245   THOLE 0.0 !        //  \
+ATOM    HA1     HA       0.21                            !       //    CW1--HA2
+ATOM    NA2     NA       0.15  ALPHA  -1.117   THOLE 0.0 ! HA1--CR1    ||
+ATOM    CW1     CW      -0.13  ALPHA  -1.276   THOLE 0.0 !       \     CW2--HA3
+ATOM    HA2     HA       0.21                            !        \   /
+ATOM    CW2     CW      -0.13  ALPHA  -1.276   THOLE 0.0 !         NA2
+ATOM    HA3     HA       0.21                            !          |
+ATOM    C12     C1      -0.17  ALPHA  -1.661   THOLE 0.0 !    H14--C12--H15
+ATOM    H14     H1       0.13						     !          |
+ATOM    H15     H1       0.13					         !    HC1--C21--HC2
+ATOM    C21     C2       0.01  ALPHA  -1.647   THOLE 0.0 !          |
+ATOM    HC1     HC       0.06						     !    HC3--CS1--HC4
+ATOM    HC2     HC       0.06						     !          |
+ATOM    CS1     CS      -0.12  ALPHA  -1.613   THOLE 0.0 !    HC5--CS2--HC6
+ATOM    HC3     HC       0.06						     !          |
+ATOM    HC4     HC       0.06						     !   HC7--CT1--HC8
+ATOM    CS2     CS      -0.12  ALPHA  -1.613   THOLE 0.0 !          | 
+ATOM    HC5     HC       0.06				 		     !          HC9
+ATOM    HC6     HC       0.06					         ! 
+ATOM    CT1     CT      -0.18  ALPHA  -1.883   THOLE 0.0 !
+ATOM    HC7     HC       0.06 					         !       
+ATOM    HC8     HC       0.06 					         !   
+ATOM    HC9     HC       0.06 					         !   
+BOND    C11    H11			     
+BOND    C11    H12
+BOND    C11    H13
+BOND    C11    NA1
+BOND    CR1    NA1
+BOND    CR1    NA2
+BOND    CW2    NA2
+BOND    CW1    CW2
+BOND    CW1    NA1
+BOND    CR1    HA1
+BOND    CW1    HA2
+BOND    CW2    HA3
+BOND    C12    NA2
+BOND    C12    H14
+BOND    C12    H15
+BOND    C12    C21
+BOND    C21    HC1
+BOND    C21    HC2
+BOND    C21    CS1
+BOND    CS1    HC3
+BOND    CS1    HC4
+BOND    CS1    CS2
+BOND    CS2    HC5
+BOND    CS2    HC6
+BOND    CS2    CT1
+BOND    CT1    HC7
+BOND    CT1    HC8
+BOND    CT1    HC9
+IMPH    CR1    NA1    NA2    HA1
+IMPH    CW1    CW2    NA1    HA2
+IMPH    CW2    CW1    NA2    HA3
+IMPH    NA1    CR1    CW1    C11
+IMPH    NA2    CR1    CW2    C12
+DONOR   HA1    CR1
+DONOR   HA2    CW1
+DONOR   HA3    CW2
+PATCHING FIRST NONE LAST NONE
+
+!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+RESIDUE  C6MI  1.00        !ergänzt durch Eduard, JPC B 108(2004), 2038
+!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+GROUP
+ATOM    C11     C1      -0.17  ALPHA  -1.670   THOLE 0.0  !         H11
+ATOM    H11     H1       0.13  				              !          |
+ATOM    H12     H1       0.13                             !    H12--C11--H13 
+ATOM    H13     H1       0.13                             !          |
+ATOM    NA1     NA       0.15  ALPHA  -1.114   THOLE 0.0  !         NA1(+)
+ATOM    CR1     CR      -0.11  ALPHA  -1.223   THOLE 0.0  !        //  \
+ATOM    HA1     HA       0.21                             !       //    CW1--HA2
+ATOM    NA2     NA       0.15  ALPHA  -1.114   THOLE 0.0  ! HA1--CR1    ||
+ATOM    CW1     CW      -0.13  ALPHA  -1.284   THOLE 0.0  !       \     CW2--HA3
+ATOM    HA2     HA       0.21                             !        \   /
+ATOM    CW2     CW      -0.13  ALPHA  -1.284   THOLE 0.0  !         NA2
+ATOM    HA3     HA       0.21                             !          |
+ATOM    C12     C1      -0.17  ALPHA  -1.670   THOLE 0.0  !    H14--C12--H15
+ATOM    H14     H1       0.13      				          !          |
+ATOM    H15     H1       0.13  				              !    HC1--C21--HC2
+ATOM    C21     C2       0.01  ALPHA  -1.655   THOLE 0.0  !          |
+ATOM    HC1     HC       0.06  					          !    HC3--CS1--HC4
+ATOM    HC2     HC       0.06  					          !          |
+ATOM    CS1     CS      -0.12  ALPHA  -1.629   THOLE 0.0  !    HC5--CS2--HC6
+ATOM    HC3     HC       0.06  					          !          |
+ATOM    HC4     HC       0.06   				          !    HC7--CS3--HC8
+ATOM    CS2     CS      -0.12  ALPHA  -1.629   THOLE 0.0  !          |            
+ATOM    HC5     HC       0.06 					          !   HC9--CT1--HC10  
+ATOM    HC6     HC       0.06						      !          |      
+ATOM    CS3     CS      -0.12  ALPHA  -1.629   THOLE 0.0  !          HC11  
+ATOM    HC7     HC       0.06				     	      !  
+ATOM    HC8     HC       0.06							  !  
+ATOM    CT1     CT      -0.18  ALPHA  -1.927   THOLE 0.0  !
+ATOM    HC9     HC       0.06   				          !
+ATOM    HC10    HC       0.06   				          !
+ATOM    HC11    HC       0.06    				          !
+BOND    C11    H11               
+BOND    C11    H12               
+BOND    C11    H13               
+BOND    C11    NA1               
+BOND    CR1    NA1               
+BOND    CR1    NA2               
+BOND    CW2    NA2               
+BOND    CW1    CW2               
+BOND    CW1    NA1
+BOND    CR1    HA1
+BOND    CW1    HA2
+BOND    CW2    HA3
+BOND    C12    NA2
+BOND    C12    H14
+BOND    C12    H15
+BOND    C12    C21
+BOND    C21    HC1
+BOND    C21    HC2
+BOND    C21    CS1
+BOND    CS1    HC3
+BOND    CS1    HC4
+BOND    CS1    CS2
+BOND    CS2    HC5
+BOND    CS2    HC6
+BOND    CS2    CS3
+BOND    CS3    HC7
+BOND    CS3    HC8
+BOND    CS3    CT1
+BOND    CT1    HC9
+BOND    CT1    HC10
+BOND    CT1    HC11
+IMPH    CR1    NA1    NA2    HA1
+IMPH    CW1    CW2    NA1    HA2
+IMPH    CW2    CW1    NA2    HA3
+IMPH    NA1    CR1    CW1    C11
+IMPH    NA2    CR1    CW2    C12
+DONOR   HA1    CR1
+DONOR   HA2    CW1
+DONOR   HA3    CW2
+PATCHING FIRST NONE LAST NONE
+
+!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+RESIDUE  C7MI  1.00        !ergänzt durch Eduard, JPC B 108(2004), 2038
+!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+GROUP
+ATOM    C11     C1      -0.17  ALPHA  -1.652   THOLE 0.0 !         H11
+ATOM    H11     H1       0.13					         !          |
+ATOM    H12     H1       0.13					         !    H12--C11--H13 
+ATOM    H13     H1       0.13						     !          |
+ATOM    NA1     NA       0.15  ALPHA  -1.158   THOLE 0.0 !         NA1(+)
+ATOM    CR1     CR      -0.11  ALPHA  -1.275   THOLE 0.0 !        //  \
+ATOM    HA1     HA       0.21						     !       //    CW1--HA2
+ATOM    NA2     NA       0.15  ALPHA  -1.158   THOLE 0.0 ! HA1--CR1    ||
+ATOM    CW1     CW      -0.13  ALPHA  -1.307   THOLE 0.0 !       \     CW2--HA3
+ATOM    HA2     HA       0.21                            !        \   /
+ATOM    CW2     CW      -0.13  ALPHA  -1.307   THOLE 0.0 !         NA2
+ATOM    HA3     HA       0.21                            !          |
+ATOM    C12     C1      -0.17  ALPHA  -1.652   THOLE 0.0 !    H14--C12--H15
+ATOM    H14     H1       0.13      				         !          |
+ATOM    H15     H1       0.13  				             !    HC1--C21--HC2
+ATOM    C21     C2       0.01  ALPHA  -1.629   THOLE 0.0 !          |
+ATOM    HC1     HC       0.06  					         !    HC3--CS1--HC4
+ATOM    HC2     HC       0.06  					         !          |
+ATOM    CS1     CS      -0.12  ALPHA  -1.701   THOLE 0.0 !    HC5--CS2--HC6
+ATOM    HC3     HC       0.06  					         !          |
+ATOM    HC4     HC       0.06   				         !    HC7--CS3--HC8
+ATOM    CS2     CS      -0.12  ALPHA  -1.701   THOLE 0.0 !          |
+ATOM    HC5     HC       0.06   				         !    HC9--CS4--HC10
+ATOM    HC6     HC       0.06   				         !          |            
+ATOM    CS3     CS      -0.12  ALPHA  -1.701   THOLE 0.0 !   HC11--CT1--HC12 
+ATOM    HC7     HC       0.06   				         !          |
+ATOM    HC8     HC       0.06   				         !          HC13
+ATOM    CS4     CS      -0.12  ALPHA  -1.701   THOLE 0.0 !  
+ATOM    HC9     HC       0.06   				         !  
+ATOM    HC10    HC       0.06   				         !
+ATOM    CT1     CT      -0.18  ALPHA  -1.862   THOLE 0.0 !
+ATOM    HC11    HC       0.06   			 	         !
+ATOM    HC12    HC       0.06    				         !
+ATOM    HC13    HC       0.06    				         !
+BOND    C11    H11               
+BOND    C11    H12               
+BOND    C11    H13
+BOND    C11    NA1
+BOND    CR1    NA1
+BOND    CR1    NA2
+BOND    CW2    NA2
+BOND    CW1    CW2
+BOND    CW1    NA1
+BOND    CR1    HA1
+BOND    CW1    HA2
+BOND    CW2    HA3
+BOND    C12    NA2
+BOND    C12    H14
+BOND    C12    H15
+BOND    C12    C21
+BOND    C21    HC1
+BOND    C21    HC2
+BOND    C21    CS1
+BOND    CS1    HC3
+BOND    CS1    HC4
+BOND    CS1    CS2
+BOND    CS2    HC5
+BOND    CS2    HC6
+BOND    CS2    CS3
+BOND    CS3    HC7
+BOND    CS3    HC8
+BOND    CS3    CS4
+BOND    CS4    HC9
+BOND    CS4    HC10
+BOND    CS4    CT1
+BOND    CT1    HC11
+BOND    CT1    HC12
+BOND    CT1    HC13
+IMPH    CR1    NA1    NA2    HA1
+IMPH    CW1    CW2    NA1    HA2
+IMPH    CW2    CW1    NA2    HA3
+IMPH    NA1    CR1    CW1    C11
+IMPH    NA2    CR1    CW2    C12
+DONOR   HA1    CR1
+DONOR   HA2    CW1
+DONOR   HA3    CW2
+PATCHING FIRST NONE LAST NONE
+
+
+
+!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+RESIDUE  C8MI  1.00                              ! JPC B 108(2004), 2038
+!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+GROUP
+ATOM    C11     C1      -0.17   ALPHA  -1.65   THOLE 0.0 !         H11
+ATOM    H11     H1       0.13 					        !          |
+ATOM    H12     H1       0.13 					        !    H12--C11--H13 
+ATOM    H13     H1       0.13 						    !          |
+ATOM    NA1     NA       0.15   ALPHA  -1.12   THOLE 0.0 !         NA1(+)
+ATOM    CR1     CR      -0.11   ALPHA  -1.22   THOLE 0.0 !        //  \
+ATOM    HA1     HA       0.21 						    !       //    CW1--HA2
+ATOM    NA2     NA       0.15   ALPHA  -1.12   THOLE 0.0 ! HA1--CR1    ||
+ATOM    CW1     CW      -0.13   ALPHA  -1.28   THOLE 0.0 !       \     CW2--HA3
+ATOM    HA2     HA       0.21                            !        \   /
+ATOM    CW2     CW      -0.13   ALPHA  -1.28   THOLE 0.0 !         NA2
+ATOM    HA3     HA       0.21                            !          |
+ATOM    C12     C1      -0.17   ALPHA  -1.65   THOLE 0.0 !    H14--C12--H15
+ATOM    H14     H1       0.13       				     !          |
+ATOM    H15     H1       0.13   				         !    HC1--C21--HC2
+ATOM    C21     C2       0.01   ALPHA  -1.67   THOLE 0.0 !          |
+ATOM    HC1     HC       0.06   					     !    HC3--CS1--HC4
+ATOM    HC2     HC       0.06   					     !          |
+ATOM    CS1     CS      -0.12   ALPHA  -1.66   THOLE 0.0 !    HC5--CS2--HC6
+ATOM    HC3     HC       0.06   					     !          |
+ATOM    HC4     HC       0.06    				         !    HC7--CS3--HC8
+ATOM    CS2     CS      -0.12   ALPHA  -1.66   THOLE 0.0 !          |
+ATOM    HC5     HC       0.06    				         !    HC9--CS4--HC10
+ATOM    HC6     HC       0.06    				         !          |
+ATOM    CS3     CS      -0.12   ALPHA  -1.66   THOLE 0.0 !   HC11--CS5--HC12
+ATOM    HC7     HC       0.06    				         !          |
+ATOM    HC8     HC       0.06    				         !   HC13--CT1--HC14
+ATOM    CS4     CS      -0.12   ALPHA  -1.66   THOLE 0.0 !          |
+ATOM    HC9     HC       0.06    				         !          HC15
+ATOM    HC10    HC       0.06    				         !
+ATOM    CS5     CS      -0.12   ALPHA  -1.66   THOLE 0.0 !
+ATOM    HC11    HC       0.06    				         !
+ATOM    HC12    HC       0.06     				         !
+ATOM    CT1     CT      -0.18   ALPHA  -1.86   THOLE 0.0 !
+ATOM    HC13    HC       0.06						     !
+ATOM    HC14    HC       0.06						 	 !
+ATOM    HC15    HC       0.06							 !
+BOND    C11    H11
+BOND    C11    H12
+BOND    C11    H13
+BOND    C11    NA1
+BOND    CR1    NA1
+BOND    CR1    NA2
+BOND    CW2    NA2
+BOND    CW1    CW2
+BOND    CW1    NA1
+BOND    CR1    HA1
+BOND    CW1    HA2
+BOND    CW2    HA3
+BOND    C12    NA2
+BOND    C12    H14
+BOND    C12    H15
+BOND    C12    C21
+BOND    C21    HC1
+BOND    C21    HC2
+BOND    C21    CS1
+BOND    CS1    HC3
+BOND    CS1    HC4
+BOND    CS1    CS2
+BOND    CS2    HC5
+BOND    CS2    HC6
+BOND    CS2    CS3
+BOND    CS3    HC7
+BOND    CS3    HC8
+BOND    CS3    CS4
+BOND    CS4    HC9
+BOND    CS4    HC10
+BOND    CS4    CS5
+BOND    CS5    HC11
+BOND    CS5    HC12
+BOND    CS5    CT1
+BOND    CT1    HC13
+BOND    CT1    HC14
+BOND    CT1    HC15
+IMPH    CR1    NA1    NA2    HA1
+IMPH    CW1    CW2    NA1    HA2
+IMPH    CW2    CW1    NA2    HA3
+IMPH    NA1    CR1    CW1    C11
+IMPH    NA2    CR1    CW2    C12
+DONOR   HA1    CR1
+DONOR   HA2    CW1
+DONOR   HA3    CW2
+PATCHING FIRST NONE LAST NONE
+
+!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+RESIDUE NTF2 -1.00                              ! JPC B 108(2004), 16893
+!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+GROUP
+ATOM    CT1     CT       0.35	 ALPHA -1.206 THOLE 0.0 !       F1
+ATOM     F1     FY      -0.16	 ALPHA -0.471 THOLE 0.0 !       |
+ATOM     F2     FY      -0.16	 ALPHA -0.471 THOLE 0.0 !  F2--CT1--F3
+ATOM     F3     FY      -0.16	 ALPHA -0.471 THOLE 0.0 !       |
+ATOM    SY1     SY       1.02	 ALPHA -2.896 THOLE 0.0 ! OY1--SY1--OY2
+ATOM    OY1     OY      -0.53	 ALPHA -0.479 THOLE 0.0 !       |
+ATOM    OY2     OY      -0.53	 ALPHA -0.479 THOLE 0.0 !      NA1(-)
+ATOM    NA1     NY      -0.66	 ALPHA -1.210 THOLE 0.0 !       |
+ATOM    SY2     SY       1.02	 ALPHA -2.896 THOLE 0.0 ! OY3--SY2--OY4  
+ATOM    OY3     OY      -0.53	 ALPHA -0.479 THOLE 0.0 !       |
+ATOM    OY4     OY      -0.53	 ALPHA -0.479 THOLE 0.0 !  F4--CT2--F5
+ATOM    CT2     CT       0.35	 ALPHA -1.206 THOLE 0.0 !       |
+ATOM     F4     FY      -0.16	 ALPHA -0.471 THOLE 0.0 !       F6
+ATOM     F5     FY      -0.16	 ALPHA -0.471 THOLE 0.0 !
+ATOM     F6     FY      -0.16	 ALPHA -0.471 THOLE 0.0 ! 
+BOND    CT1     F1
+BOND    CT1     F2
+BOND    CT1     F3
+BOND    CT1    SY1
+BOND    NA1    SY1
+BOND    OY1    SY1
+BOND    OY2    SY1
+BOND    NA1    SY2
+BOND    OY3    SY2
+BOND    OY4    SY2
+BOND    CT2    SY2
+BOND    CT2     F4
+BOND    CT2     F5
+BOND    CT2     F6
+ACCEPTOR OY1   SY1
+ACCEPTOR OY2   SY1
+ACCEPTOR OY3   SY2
+ACCEPTOR OY4   SY2
+ACCEPTOR NA1   SY1
+ACCEPTOR NA1   SY2
+PATCHING FIRST NONE LAST NONE
+END
+
+
+
+
+!*.......................................................................
+!*.              Nonpolarizable Canongia Lopes--Padua     
+!*.......................................................................
+!*.              Last changed Time-stamp: <2016-03-16 09:56:34 christian>
+!*.......................................................................
+!*
+read param card append
+* PARAM
+
+ATOMS
+!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+MASS  201 H1         1.008
+MASS  202 HA         1.008
+MASS  204 HC         1.008
+MASS  205 HNA        1.008
+MASS  220 C1        12.011
+MASS  221 C2        12.011
+MASS  223 CE        12.011
+MASS  225 CR        12.011
+MASS  226 CS        12.011
+MASS  227 CT        12.011
+MASS  228 CW        12.011
+MASS  230 NA        14.007
+MASS  236 NY        14.007
+MASS  240 OY        15.999
+MASS  250 FY        18.998
+MASS  260 SY        32.066
+
+
+BONDS
+!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+! U_bond = k ( r - r0 )^2
+!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+!TYPE1    TYPE2    k [kcal/mol Angstroem^2]     r0 [Angstroem]
+!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+! imidazolium
+C1        H1                 340.0000               1.090 ! OPLS
+C2        HC                 340.0000               1.090 ! OPLS 
+CE        HC                 340.0000               1.090 ! OPLS
+CS        HC                 340.0000               1.090 ! OPLS
+CT        HC                 340.0000               1.090 ! OPLS
+CR        HA                 367.0000               1.080 ! OPLS
+CW        HA                 367.0000               1.080 ! OPLS
+C1        CE                 267.8204               1.529
+C1        C2                 267.8204               1.529
+C2        CS                 267.8204               1.529
+CS        CS                 267.8204               1.529
+CS        CT                 267.8204               1.529
+C2        CT                 267.8204               1.529 ! added by eduard
+CT        CT                 267.8204               1.529
+C1        NA                 336.7752               1.466
+CR        NA                 476.6817               1.315
+CW        CW                 519.6525               1.341
+CW        NA                 426.7151               1.378
+HNA       NA                 474.0000               1.010 ! OPLS
+! triflate, bis(trifluoromethylsulfonyl)amide
+CT        FY                 441.6263               1.323
+CT        SY                 232.8749               1.818
+NY        SY                 374.6300               1.570
+OY        SY                 636.6440               1.437
+
+
+ANGLES
+!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+! U_angle = k ( theta - theta0 )^2
+!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+!TYPE1    TYPE2     TYPE3     k [kcal/mol rad^2]     theta0 [deg]
+!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+! imidazolium
+CR        NA        CW              69.9532          108.0
+C1        NA        CW              69.9532          125.6
+C1        NA        CR              69.9532          126.4
+HA        CR        NA              34.9766          125.1
+NA        CR        NA              69.9532          109.8
+CW        CW        NA              69.9532          107.1
+HA        CW        NA              34.9766          122.0
+CW        CW        HA              34.9766          130.9
+H1        C1        NA              37.4749          110.7
+C1        CE        HC              37.4749          110.7
+ C1        C2        CT             58.3142          112.7 ! vgl. C1 CS CT            
+ HC        C2        CT             37.4749          110.7 ! vgl. C1 C2 CH             
+ C2        CT        HC             37.4749          110.7 ! vgl. C2 C1 CH             
+C1        C2        HC              37.4749          110.7
+C2        CS        HC              37.4749          110.7
+CS        C2        HC              37.4749          110.7
+CS        CS        HC              37.4749          110.7
+CS        CT        HC              37.4749          110.7
+CT        CT        HC              37.4749          110.7
+CT        CS        HC              37.4749          110.7
+CE        C1        H1              37.4749          110.7
+C2        C1        H1              37.4749          110.7
+CE        C1        NA              58.3142          112.7 !agilio github
+C2        C1        NA              58.3142          112.7 !agilio github
+C1        C2        CS              58.3142          112.7 !agilio github
+C2        CS        CT              58.3142          112.7 !agilio github
+C2        CS        CS              58.3142          112.7 !agilio github
+CS        CS        CS              58.3142          112.7 !agilio github
+CS        CS        CT              58.3142          112.7 !agilio github
+H1        C1        H1              33.0000          107.8
+HC        C2        HC              33.0000          107.8
+HC        CE        HC              33.0000          107.8
+HC        CS        HC              33.0000          107.8
+HC        CT        HC              33.0000          107.8
+CR        NA        HNA             35.0000          125.4
+CW        NA        HNA             35.0000          126.6
+! triflate, bis(trifluoromethylsulfonyl)amide
+FY        CT        FY              93.2694          107.1
+FY        CT        SY              82.8796          111.8
+CT        SY        OY             103.8980          102.6
+OY        SY        OY             115.7209          118.5
+NY        SY        OY              94.2247          113.6
+CT        SY        NY              91.2392          103.5
+SY        NY        SY              80.1328          125.6
+DIHEDRALS
+!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+! U_dihedral = k ( 1 + Cos[n phi - delta] )
+!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+!TYPE1    TYPE2     TYPE3     TYPE4    k [kcal/mol]    n     delta [deg]
+!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+!imidazolium
+X         NA        CR        X             2.324      2      180.0
+X         CW        CW        X             5.371      2      180.0   
+X         NA        CW        X             1.499      2      180.0
+CW        NA        C1        H1            0.062      3        0.0
+CR        NA        C1        H1            0.000      3        0.0
+CW        NA        C1        C2           -0.854      1        0.0
+CW        NA        C1        C2            0.729      2      180.0
+CW        NA        C1        C2            0.095      3        0.0
+CW        NA        C1        CE           -0.854      1        0.0
+CW        NA        C1        CE            0.729      2      180.0
+CW        NA        C1        CE            0.095      3        0.0
+CR        NA        C1        C2           -0.629      1        0.0
+CR        NA        C1        CE           -0.629      1        0.0
+NA        C1        C2        CS           -0.893      1        0.0
+NA        C1        C2        CS            0.378      2      180.0
+NA        C1        C2        CS            0.144      3        0.0
+NA        C1        C2        CT           -0.893      1        0.0
+NA        C1        C2        CT            0.378      2      180.0
+NA        C1        C2        CT            0.144      3        0.0
+NA        C1        C2        HC            0.000      1        0.0
+NA        C1        CE        HC            0.000      1        0.0
+C1        C2        CS        HC            0.183      3        0.0
+C1        C2        CT        HC            0.183      3        0.0
+C2        CS        CS        HC            0.183      3        0.0
+C2        CS        CT        HC            0.183      3        0.0
+CS        CS        CS        HC            0.183      3        0.0
+CS        CS        CT        HC            0.183      3        0.0
+H1        C1        C2        CS            0.183      3        0.0
+H1        C1        C2        CT            0.183      3        0.0
+HC        C2        CS        CS            0.183      3        0.0
+HC        C2        CS        CT            0.183      3        0.0
+HC        CS        CS        CT            0.183      3        0.0
+H1        C1        C2        HC            0.159      3        0.0
+H1        C1        CE        HC            0.159      3        0.0
+HC        C2        CT        HC            0.159      3        0.0
+HC        C2        CS        HC            0.159      3        0.0
+HC        CS        CS        HC            0.159      3        0.0
+HC        CS        CT        HC            0.159      3        0.0
+HC        CT        CT        HC            0.159      3        0.0
+C1        C2        CS        CT            0.869      1        0.0
+C1        C2        CS        CT           -0.078      2      180.0
+C1        C2        CS        CT            0.139      3        0.0
+C1        C2        CS        CS            0.869      1        0.0
+C1        C2        CS        CS           -0.078      2      180.0
+C1        C2        CS        CS            0.139      3        0.0
+C2        CS        CS        CS            0.869      1        0.0
+C2        CS        CS        CS           -0.078      2      180.0
+C2        CS        CS        CS            0.139      3        0.0
+C2        CS        CS        CT            0.869      1        0.0
+C2        CS        CS        CT           -0.078      2      180.0
+C2        CS        CS        CT            0.139      3        0.0
+CS        CS        CS        CS            0.869      1        0.0
+CS        CS        CS        CS           -0.078      2      180.0
+CS        CS        CS        CS            0.139      3        0.0
+CS        CS        CS        CT            0.869      1        0.0
+CS        CS        CS        CT           -0.078      2      180.0
+CS        CS        CS        CT            0.139      3        0.0
+! triflate, bis(rifluoromethylsulfonyl)amide
+FY        CT        SY        OY            0.173      3        0.0
+OY        SY        NY        SY           -0.0018     3        0.0
+FY        CT        SY        NY            0.158      3        0.0
+CT        SY        NY        SY            3.914      1        0.0    
+CT        SY        NY        SY           -1.244      2      180.0   
+CT        SY        NY        SY           -0.382      3        0.0
+
+IMPROPERS
+!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+! n > 0:      U_improper = k ( 1 + Cos[n phi - delta] )
+! n = 0:      U_improper = k ( phi - delta )^2
+!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+!TYPE1    TYPE2     TYPE3     TYPE4    k [kcal/mol]    n     delta [deg]
+!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+! imidazolium
+NA        X         X         C1            2.0000     0        0.0
+CR        X         X         HA            2.2000     0        0.0
+CW        X         X         HA            2.0000     0        0.0
+NONBONDED NBXMOD 5 E14FAC 0.500  
+!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+!TYPE1          epsilon    rmin/2         epsilon14    rmin14/2 
+!           [kcal/mol] [Angstroem]      [kcal/mol]  [Angstroem]
+!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+! imidazolium
+C1  0.00  -0.0467  1.96431  0.00  -0.0233  1.96431
+C2      0.00  -0.0660    1.96431   0.00   -0.0330     1.96431
+CE      0.00  -0.0660    1.96431   0.00   -0.0330     1.96431
+CR  0.00  -0.0553  1.99237  0.00  -0.0277  1.99237
+CS      0.00  -0.0660    1.96431   0.00   -0.0330     1.96431
+CT  0.00  -0.0526  1.96431  0.00  -0.0263  1.96431
+CW  0.00  -0.0547  1.99237  0.00  -0.0273  1.99237
+H1  0.00  -0.03  1.40308  0.00  -0.015  1.40308
+HA  0.00  -0.03  1.40308  0.00  -0.015  1.40308
+HC      0.00  -0.0300    1.40308   0.00   -0.0150     1.40308
+HNA     0.00  -0.0000    0.00000   0.00   -0.0000     0.00000
+NA  0.00  -0.1392  1.82400  0.00  -0.0696  1.82400
+! triflate, bis(trifluoromethylsulfonyl)amide
+FY  0.00  -0.0491  1.65563  0.00  -0.0246  1.65563
+NY  0.00  -0.1354  1.82400  0.00  -0.0677  1.82400
+OY  0.00  -0.1944  1.66124  0.00  -0.0972  1.66124
+SY  0.00  -0.1  1.99237  0.00  -0.05  1.99237
+
+END
