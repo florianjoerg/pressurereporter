@@ -135,7 +135,7 @@ class PressureReporter(object):
         #      t_com.value_in_unit(kelvin), t.value_in_unit(kelvin), t_drude.value_in_unit(kelvin),
         #      ke_com.value_in_unit(kJ_mol), ke.value_in_unit(kJ_mol), ke_drude.value_in_unit(kJ_mol),
         #      sep='\t', file=self._out)
-        print(simulation.currentStep, tensor[0][0], tensor[0][1], tensor[0][2], tensor[1][0], tensor[1][1], tensor[1][2], tensor[2][0], tensor[2][1], tensor[2][2], file=self._out)
+        print(simulation.currentStep, tensor[0][0], tensor[0][1], tensor[0][2], tensor[1][0], tensor[1][1], tensor[1][2], tensor[2][0], tensor[2][1], tensor[2][2],sep='/t', file=self._out)
 
         if hasattr(self._out, 'flush') and callable(self._out.flush):
             self._out.flush()
