@@ -90,8 +90,11 @@ class PressureReporter(object):
             #self.atom_array = np.array(list(set(range(self.n_atom)) - drude_set))
 
             self._hasInitialized = True
-            print('#"Step"\t"T_COM"\t"T_Atom"\t"T_Drude"\t"KE_COM"\t"KE_Atom"\t"KE_Drude"', file=self._out)
+            print('#"Step"\t""\t"T_Atom"\t"T_Drude"\t"KE_COM"\t"KE_Atom"\t"KE_Drude"', file=self._out)
 
+        forces = state.getForces(asNumpy=True)
+        positions = state.getPositions(asNumpy=True)
+        
         #velocities = state.getVelocities(asNumpy=True).value_in_unit(unit.nanometer / unit.picosecond)
         #masses = np.array([system.getParticleMass(i).value_in_unit(unit.dalton) for i in range(self.n_atom)])
 
