@@ -2,7 +2,7 @@
 # NPT for determine the inital box size for the NVT runs
 
 
-import sys
+import sys, os
 from simtk.openmm import *
 from simtk.openmm.app import *
 from simtk.unit import *
@@ -15,7 +15,12 @@ from velocityverletplugin import VVIntegrator
 
 #extra stuff from VVplugin repo
 sys.path.append("/home/eduard/openmm_plugins/openmm-velocityVerlet/examples/")
+sys.path.append("/home/florian/software/openmm-velocityVerlet/examples/")
 from ommhelper import DrudeTemperatureReporter, ViscosityReporter
+
+#new pressureReporter
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__),'..')))
+from reporters import PressureReporter
 
 
 
@@ -35,7 +40,7 @@ pcnt = cnt-1
 
 
 if cnt > 1:
-    rst = f'traj/npt_{pcnt}.rst'  #restart file 
+    rst = f'npt_{pcnt}.rst'  #restart file 
 
 
 
@@ -141,14 +146,14 @@ if cnt > 1:
     with open(rst, 'r') as f:
         simulation.context.setState(XmlSerializer.deserialize(f.read()))
 
-if cnt == 1: #minimize
-    print('Performing energy minimization...')
-    simulation.minimizeEnergy(maxIterations=5000)
-    print(simulation.context.getState(getEnergy=True).getPotentialEnergy())
-    print("Saving minimized pdb...")
-    positions = simulation.context.getState(getPositions=True).getPositions()
-    simulation.context.setVelocitiesToTemperature(temperature)
-    PDBFile.writeFile(simulation.topology, positions, open("mini.pdb",'w'))
+#if cnt == 1: #minimize
+#    print('Performing energy minimization...')
+#    simulation.minimizeEnergy(maxIterations=5000)
+#    print(simulation.context.getState(getEnergy=True).getPotentialEnergy())
+#    print("Saving minimized pdb...")
+#    positions = simulation.context.getState(getPositions=True).getPositions()
+#    simulation.context.setVelocitiesToTemperature(temperature)
+#    PDBFile.writeFile(simulation.topology, positions, open("mini.pdb",'w'))
     
 
 
@@ -156,19 +161,21 @@ if cnt == 1: #minimize
 #steps = 4000000                           # 0.5fm*400000=200ps=0.2ns
 #steps= int(step_number)  #50000           # 0.5fm*50000=25ps   
 #write_freq= int(w_freq)
-dcdReporter = DCDReporter(f"traj/npt_{cnt}.dcd", write_freq)
+dcdReporter = DCDReporter(f"npt_{cnt}.dcd", write_freq)
 dataReporter = StateDataReporter(sys.stdout, write_freq, totalSteps=steps,step=True, progress=True, time=True, potentialEnergy=True, kineticEnergy=True, totalEnergy=True, temperature=True, volume=True, density=True, separator='\t')
-drudeReporter = DrudeTemperatureReporter(f"out/drude_temp_{cnt}.out", write_freq)
+drudeReporter = DrudeTemperatureReporter(f"drude_temp_{cnt}.out", write_freq)
+pressureReporter = PressureReporter(f"pressure_{cnt}.out", write_freq)
 print('Simulating...')
 simulation.reporters.append(dcdReporter)
 simulation.reporters.append(dataReporter)
 simulation.reporters.append(drudeReporter)
+simulation.reporters.append(pressureReporter)
 simulation.step(steps)
 
 
 #write restart file
 state = simulation.context.getState( getPositions=True, getVelocities=True )
-with open(f'traj/npt_{cnt}.rst', 'w') as f:
+with open(f'npt_{cnt}.rst', 'w') as f:
     f.write(XmlSerializer.serialize(state))
 
 #crd = simulation.context.getState(getPositions=True).getPositions()
