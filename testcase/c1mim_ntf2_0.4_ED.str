@@ -528,40 +528,40 @@ RESIDUE  C8MI  1.00                              ! JPC B 108(2004), 2038
 !~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 GROUP
 ATOM    C11     C1      -0.17   ALPHA  -1.65   THOLE 0.0 !         H11
-ATOM    H11     H1       0.13 					        !          |
-ATOM    H12     H1       0.13 					        !    H12--C11--H13 
-ATOM    H13     H1       0.13 						    !          |
+ATOM    H11     H1       0.13 		        !          |
+ATOM    H12     H1       0.13 				        !    H12--C11--H13 
+ATOM    H13     H1       0.13 					    !          |
 ATOM    NA1     NA       0.15   ALPHA  -1.12   THOLE 0.0 !         NA1(+)
 ATOM    CR1     CR      -0.11   ALPHA  -1.22   THOLE 0.0 !        //  \
-ATOM    HA1     HA       0.21 						    !       //    CW1--HA2
+ATOM    HA1     HA       0.21 			    !       //    CW1--HA2
 ATOM    NA2     NA       0.15   ALPHA  -1.12   THOLE 0.0 ! HA1--CR1    ||
 ATOM    CW1     CW      -0.13   ALPHA  -1.28   THOLE 0.0 !       \     CW2--HA3
 ATOM    HA2     HA       0.21                            !        \   /
 ATOM    CW2     CW      -0.13   ALPHA  -1.28   THOLE 0.0 !         NA2
 ATOM    HA3     HA       0.21                            !          |
 ATOM    C12     C1      -0.17   ALPHA  -1.65   THOLE 0.0 !    H14--C12--H15
-ATOM    H14     H1       0.13       				     !          |
-ATOM    H15     H1       0.13   				         !    HC1--C21--HC2
+ATOM    H14     H1       0.13       			     !          |
+ATOM    H15     H1       0.13   			         !    HC1--C21--HC2
 ATOM    C21     C2       0.01   ALPHA  -1.67   THOLE 0.0 !          |
-ATOM    HC1     HC       0.06   					     !    HC3--CS1--HC4
-ATOM    HC2     HC       0.06   					     !          |
+ATOM    HC1     HC       0.06   			     !    HC3--CS1--HC4
+ATOM    HC2     HC       0.06   			     !          |
 ATOM    CS1     CS      -0.12   ALPHA  -1.66   THOLE 0.0 !    HC5--CS2--HC6
-ATOM    HC3     HC       0.06   					     !          |
-ATOM    HC4     HC       0.06    				         !    HC7--CS3--HC8
+ATOM    HC3     HC       0.06   		     !          |
+ATOM    HC4     HC       0.06    		         !    HC7--CS3--HC8
 ATOM    CS2     CS      -0.12   ALPHA  -1.66   THOLE 0.0 !          |
-ATOM    HC5     HC       0.06    				         !    HC9--CS4--HC10
-ATOM    HC6     HC       0.06    				         !          |
+ATOM    HC5     HC       0.06    		         !    HC9--CS4--HC10
+ATOM    HC6     HC       0.06    		         !          |
 ATOM    CS3     CS      -0.12   ALPHA  -1.66   THOLE 0.0 !   HC11--CS5--HC12
-ATOM    HC7     HC       0.06    				         !          |
-ATOM    HC8     HC       0.06    				         !   HC13--CT1--HC14
+ATOM    HC7     HC       0.06    		         !          |
+ATOM    HC8     HC       0.06    		         !   HC13--CT1--HC14
 ATOM    CS4     CS      -0.12   ALPHA  -1.66   THOLE 0.0 !          |
-ATOM    HC9     HC       0.06    				         !          HC15
-ATOM    HC10    HC       0.06    				         !
+ATOM    HC9     HC       0.06    		         !          HC15
+ATOM    HC10    HC       0.06    		         !
 ATOM    CS5     CS      -0.12   ALPHA  -1.66   THOLE 0.0 !
-ATOM    HC11    HC       0.06    				         !
-ATOM    HC12    HC       0.06     				         !
+ATOM    HC11    HC       0.06    		         !
+ATOM    HC12    HC       0.06     		         !
 ATOM    CT1     CT      -0.18   ALPHA  -1.86   THOLE 0.0 !
-ATOM    HC13    HC       0.06						     !
+ATOM    HC13    HC       0.06			     !
 ATOM    HC14    HC       0.06						 	 !
 ATOM    HC15    HC       0.06							 !
 BOND    C11    H11
@@ -735,9 +735,9 @@ HA        CW        NA              34.9766          122.0
 CW        CW        HA              34.9766          130.9
 H1        C1        NA              37.4749          110.7
 C1        CE        HC              37.4749          110.7
- C1        C2        CT             58.3142          112.7 ! vgl. C1 CS CT            
- HC        C2        CT             37.4749          110.7 ! vgl. C1 C2 CH             
- C2        CT        HC             37.4749          110.7 ! vgl. C2 C1 CH             
+C1        C2        CT              58.3142          112.7 ! vgl. C1 CS CT            
+HC        C2        CT              37.4749          110.7 ! vgl. C1 C2 CH             
+C2        CT        HC              37.4749          110.7 ! vgl. C2 C1 CH             
 C1        C2        HC              37.4749          110.7
 C2        CS        HC              37.4749          110.7
 CS        C2        HC              37.4749          110.7

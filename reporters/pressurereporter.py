@@ -90,8 +90,15 @@ class PressureReporter(object):
             #self.atom_array = np.array(list(set(range(self.n_atom)) - drude_set))
 
             self._hasInitialized = True
-            print('#"Step"\t"T_COM"\t"T_Atom"\t"T_Drude"\t"KE_COM"\t"KE_Atom"\t"KE_Drude"', file=self._out)
+            print('#"Step"\t"s11"\t"s12"\t"s13"\t"s21"\t"s22"\t"s23"\t"s31"\t"s32"\t"s33"', file=self._out)
 
+        forces = state.getForces(asNumpy=True)
+        positions = state.getPositions(asNumpy=True)
+        tensor = np.zeros([3,3])
+        for i in range(len(forces)):
+            tens = np.outer(positions[i],forces[i])
+            tensor = tensor + tens
+        tensor=-tensor/2
         #velocities = state.getVelocities(asNumpy=True).value_in_unit(unit.nanometer / unit.picosecond)
         #masses = np.array([system.getParticleMass(i).value_in_unit(unit.dalton) for i in range(self.n_atom)])
 
@@ -128,7 +135,7 @@ class PressureReporter(object):
         #      t_com.value_in_unit(kelvin), t.value_in_unit(kelvin), t_drude.value_in_unit(kelvin),
         #      ke_com.value_in_unit(kJ_mol), ke.value_in_unit(kJ_mol), ke_drude.value_in_unit(kJ_mol),
         #      sep='\t', file=self._out)
-        print(simulation.currentStep, "When you see this all is fine so far:)", file=self._out)
+        print(simulation.currentStep, tensor[0][0], tensor[0][1], tensor[0][2], tensor[1][0], tensor[1][1], tensor[1][2], tensor[2][0], tensor[2][1], tensor[2][2],sep='\t', file=self._out)
 
         if hasattr(self._out, 'flush') and callable(self._out.flush):
             self._out.flush()
