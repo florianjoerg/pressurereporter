@@ -1,7 +1,7 @@
 import numpy as np
 import simtk.openmm as mm
 from simtk.openmm.app import Simulation
-
+from simtk.unit import *
 class PressureReporter(object):
     '''
     PressureReporter reports the reports the pressure tensor for a simulation.
@@ -99,6 +99,19 @@ class PressureReporter(object):
             tens = np.outer(positions[i],forces[i])
             tensor = tensor + tens
         tensor=-tensor/2
+        velocities = state.getVelocities(asNumpy=True)
+        E_kin = np.zeros([3,3])
+        for i in range(len(velocities)):
+            mv = system.getParticleMass(i)*velocities[i]
+            kin = np.outer(mv, velocities[i])
+            E_kin = E_kin + kin
+        #for i  in range(len(velocities)):
+        #    kin = np.outer(mv[i], velocities[i])
+        #    E_kin = E_kin + kin
+        E_kin = E_kin/2
+        V = state.getPeriodicBoxVolume()/(nanometers**3)
+        P = (2/V)*(E_kin-tensor)
+
         #velocities = state.getVelocities(asNumpy=True).value_in_unit(unit.nanometer / unit.picosecond)
         #masses = np.array([system.getParticleMass(i).value_in_unit(unit.dalton) for i in range(self.n_atom)])
 
@@ -135,7 +148,7 @@ class PressureReporter(object):
         #      t_com.value_in_unit(kelvin), t.value_in_unit(kelvin), t_drude.value_in_unit(kelvin),
         #      ke_com.value_in_unit(kJ_mol), ke.value_in_unit(kJ_mol), ke_drude.value_in_unit(kJ_mol),
         #      sep='\t', file=self._out)
-        print(simulation.currentStep, tensor[0][0], tensor[0][1], tensor[0][2], tensor[1][0], tensor[1][1], tensor[1][2], tensor[2][0], tensor[2][1], tensor[2][2],sep='\t', file=self._out)
+        print(simulation.currentStep, P[0][0], P[0][1], P[0][2], P[1][0], P[1][1], P[1][2], P[2][0], P[2][1], P[2][2],sep='\t', file=self._out)
 
         if hasattr(self._out, 'flush') and callable(self._out.flush):
             self._out.flush()
