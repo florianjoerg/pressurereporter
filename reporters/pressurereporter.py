@@ -40,7 +40,7 @@ class PressureReporter(object):
             positions should be wrapped to lie in a single periodic box.
         """
         steps = self._reportInterval - simulation.currentStep%self._reportInterval
-        return (steps, True, False, True, True)
+        return (steps, True, True, True, True)
 
     def report(self, simulation, state):
         """Generate a report.
