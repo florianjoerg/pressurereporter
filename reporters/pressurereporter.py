@@ -92,24 +92,24 @@ class PressureReporter(object):
             self._hasInitialized = True
             print('#"Step"\t"s11"\t"s12"\t"s13"\t"s21"\t"s22"\t"s23"\t"s31"\t"s32"\t"s33"', file=self._out)
 
-        forces = state.getForces(asNumpy=True)
-        positions = state.getPositions(asNumpy=True)
+        forces =state.getForces(asNumpy=True).value_in_unit(joule/(meter*mole))
+        positions = state.getPositions(asNumpy=True).value_in_unit(meter)
         tensor = np.zeros([3,3])
         for i in range(len(forces)):
             tens = np.outer(positions[i],forces[i])
             tensor = tensor + tens
         tensor=-tensor/2
-        velocities = state.getVelocities(asNumpy=True)
+        velocities = state.getVelocities(asNumpy=True).value_in_unit(meter/second)
         E_kin = np.zeros([3,3])
         for i in range(len(velocities)):
-            mv = system.getParticleMass(i)*velocities[i]
+            mv = system.getParticleMass(i).value_in_unit(kilogram/mole)*velocities[i]
             kin = np.outer(mv, velocities[i])
             E_kin = E_kin + kin
         #for i  in range(len(velocities)):
         #    kin = np.outer(mv[i], velocities[i])
         #    E_kin = E_kin + kin
         E_kin = E_kin/2
-        V = state.getPeriodicBoxVolume()/(nanometers**3)
+        V = state.getPeriodicBoxVolume().value_in_unit(meter**3)
         P = (2/V)*(E_kin-tensor)
 
         #velocities = state.getVelocities(asNumpy=True).value_in_unit(unit.nanometer / unit.picosecond)
