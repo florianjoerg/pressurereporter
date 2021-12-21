@@ -94,6 +94,7 @@ class PressureReporter(object):
 
         forces =state.getForces(asNumpy=True).value_in_unit(joule/(meter*mole))
         positions = state.getPositions(asNumpy=True).value_in_unit(meter)
+        N_A = 6.02214076e23
         tensor = np.zeros([3,3])
         for i in range(len(forces)):
             tens = np.outer(positions[i],forces[i])
@@ -111,6 +112,7 @@ class PressureReporter(object):
         E_kin = E_kin/2
         V = state.getPeriodicBoxVolume().value_in_unit(meter**3)
         P = (2/V)*(E_kin-tensor)
+        P = P/N_A
 
         #velocities = state.getVelocities(asNumpy=True).value_in_unit(unit.nanometer / unit.picosecond)
         #masses = np.array([system.getParticleMass(i).value_in_unit(unit.dalton) for i in range(self.n_atom)])
