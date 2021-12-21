@@ -97,14 +97,14 @@ class PressureReporter(object):
         N_A = 6.02214076e23
         tensor = np.zeros([3,3])
         for i in range(len(forces)):
-            tens = np.outer(positions[i],forces[i])
+            tens = np.kron(positions[i],forces[i])
             tensor = tensor + tens
         tensor=-tensor/2
         velocities = state.getVelocities(asNumpy=True).value_in_unit(meter/second)
         E_kin = np.zeros([3,3])
         for i in range(len(velocities)):
             mv = system.getParticleMass(i).value_in_unit(kilogram/mole)*velocities[i]
-            kin = np.outer(mv, velocities[i])
+            kin = np.kron(mv, velocities[i])
             E_kin = E_kin + kin
         #for i  in range(len(velocities)):
         #    kin = np.outer(mv[i], velocities[i])
